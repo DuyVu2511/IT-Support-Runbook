@@ -46,6 +46,8 @@
 *   **Nghiệm thu thực tế (Network Verification):**
     *   *Thao tác:* Mở trình duyệt trên máy thật: `http://192.168.50.130` (Cổng mặc định HTTP: Port 80).
     *   *Kết quả đạt:* Giao diện hiển thị thành công trang mặc định **"Welcome to nginx!"**, xác thực luồng mạng thông suốt từ ngoài vào trong, tường lửa không chặn mạch kết nối TCP.
+    * *Hình ảnh minh chứng:*
+	![Kết quả nghiệm thu Nginx](nginx-success.png)
 
 ---
 
