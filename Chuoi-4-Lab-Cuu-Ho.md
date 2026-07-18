@@ -36,7 +36,7 @@ Khôi phục quyền truy cập máy tính cho người dùng khi họ quên m�
 Nhân viên đi công tác dài ngày về quên mật khẩu đăng nhập máy tính công ty. IT Support dùng công cụ chuyên dụng để gỡ bỏ hoàn toàn mật khẩu cũ, giúp nhân viên vào lại máy làm việc ngay lập tức.
 
 > **🎬 Video minh chứng thực hành:**
-> <video src="Video-Lab02.mp4" controls width="100%"></video>
+> > [📺 Bấm vào đây để xem Video thực chiến bài Lab 2 trên YouTube](https://youtu.be/5UtHmZIsgwE)
 
 ---
 
@@ -56,7 +56,7 @@ Nhân viên đi công tác dài ngày về quên mật khẩu đăng nhập máy
 Máy tính kế toán đột ngột sập màn hình xanh không thể sửa lỗi. IT Support phải dùng WinPE chui vào ổ cứng hỏng để lấy file báo cáo tài chính ra USB an toàn trước khi quyết định cài lại Windows.
 
 > **🎬 Video minh chứng thực hành:**
-><video src="Video-Lab03.mp4" controls width="100%"></video>
+>> [📺 Bấm vào đây để xem Video thực chiến bài Lab 3 trên YouTube](https://youtu.be/Uer_7J4YOIU)
 
 ---
 
@@ -78,4 +78,4 @@ Xây dựng hạ tầng quản lý tệp tin trên Windows Server 2022. Áp dụ
 Doanh nghiệp yêu cầu quy hoạch lại dữ liệu nội bộ. Giám đốc yêu cầu Kế toán chỉ được làm việc trong thư mục Kế toán, tuyệt đối không được phép xem hoặc chỉnh sửa bảng lương nằm trong thư mục của phòng Nhân sự.
 
 > **🎬 Video minh chứng thực hành:**
-><video src="Video-Lab04.mp4" controls width="100%"></video>
+>> [📺 Bấm vào đây để xem Video thực chiến bài Lab 4 trên YouTube](https://youtu.be/gF4TXL-Hgt8)
