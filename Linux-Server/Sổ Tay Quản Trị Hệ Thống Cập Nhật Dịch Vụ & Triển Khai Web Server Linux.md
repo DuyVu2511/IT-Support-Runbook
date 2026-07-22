@@ -62,3 +62,55 @@
     ```bash
     sudo ufw allow 80/tcp
     ```
+
+---
+
+## 4. Quản trị Phân quyền File System (chown & chmod) & Log Nginx
+
+* **Giải mã Cấu trúc Phân quyền Linux (ls -l):**
+    ```shell
+    cd /var/www/html
+    ls -l
+    ```
+    *Giải mã kết quả dạng `-rw-r--r-- 1 vutd vutd 623 Jul 22 02:39 index.nginx-debian.html`:*
+    * Ký tự đầu (`-`): Loại tài nguyên (File thông thường; nếu là thư mục sẽ hiển thị `d`).
+    * Cụm 3 ký tự đầu (`rw-`): Quyền của **Chủ sở hữu (Owner)** -> Đọc (r), Ghi/Sửa (w).
+    * Cụm 3 ký tự giữa (`r--`): Quyền của **Nhóm sở hữu (Group)** -> Chỉ đọc (r).
+    * Cụm 3 ký tự cuối (`r--`): Quyền của **Người dùng khác (Others)** -> Chỉ đọc (r).
+    * `vutd vutd`: Tên User sở hữu và Group sở hữu.
+
+* **Troubleshooting Thực chiến: Lỗi "Permission Denied":**
+    *Mục đích:* Xử lý sự cố khi Lập trình viên/User không có quyền sửa file web.
+    *Tình huống:* Hệ thống báo lỗi `-bash: index.nginx-debian.html: Permission denied`.
+    *Nguyên nhân:* File thuộc quyền sở hữu của `root`, tài khoản hiện tại bị xếp vào nhóm `Others` (chỉ có quyền Read-only `r--`).
+    ```shell
+    sudo chown vutd:vutd index.nginx-debian.html
+    ```
+    *Bản chất:* Chuyển quyền làm chủ file về đúng User/Group cần thao tác (`chown`), cho phép ghi file hợp lệ mà không cần mở toàn bộ hệ thống.
+
+* **Quy chuẩn Phân quyền Doanh nghiệp (Security Standard):**
+    ⚠️ *Production Rule:* Tuyệt đối KHÔNG DÙNG `chmod 777` trên môi trường Production. Việc cấp quyền Execute (`x`) và Write (`w`) cho nhóm `Others` sẽ tạo lỗ hổng cho Hacker tải và thực thi mã độc (Webshell) chiếm quyền Server.
+    
+    *Ma trận phân quyền chuẩn (Principle of Least Privilege):*
+    | Đối Tượng | Mức Quyền (`chmod`) | Ý Nghĩa Sử Dụng |
+    | :--- | :---: | :--- |
+    | Thư mục Web | `755` (`rwxr-xr-x`) | Owner full quyền; Group & Others chỉ xem/truy cập. |
+    | File Web (HTML, PHP) | `644` (`rw-r--r--`) | Owner đọc/sửa; Nginx đọc để render web cho khách. |
+    | File Chứa Password / Config | `600` (`rw-------`) | Duy nhất Owner có quyền đọc/sửa. Cách ly 100%. |
+
+    *Mô hình quản trị theo Group cho Team Dev:*
+    ```shell
+    sudo chown -R www-data:webdevs /var/www/html
+    ```
+
+* **Giám sát & Soi Log Nginx (Troubleshooting Web Errors):**
+    *Vị trí lưu trữ Log hệ thống:*
+    * Log lỗi dịch vụ: `/var/log/nginx/error.log`
+    * Log lịch sử truy cập: `/var/log/nginx/access.log`
+    
+    *Lệnh theo dõi lỗi realtime khi Web gặp sự cố (502 Bad Gateway / 500 Server Error):*
+    ```shell
+    sudo tail -f /var/log/nginx/error.log
+    ```
+
+---

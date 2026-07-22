@@ -23,12 +23,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux-Server/Sổ Tay Quản Trị Hệ Thống Cập Nhật Dịch Vụ & Triển Khai Web Server Linux.md",
+                "file": "IT-Helpdesk/Quan-Tri-Thiet-Lap-May-In-Mang-LAN.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Sổ Tay Quản Trị Hệ Thống Cập Nhật Dịch Vụ & Triển Khai Web Server Linux"
+              "title": "Quan-Tri-Thiet-Lap-May-In-Mang-LAN"
             }
           }
         ],
@@ -196,15 +196,17 @@
   },
   "active": "f9ca898e5baf6197",
   "lastOpenFiles": [
-    "Windows-Server/Chuoi-4-Lab-Cuu-Ho.md",
     "Linux-Server/Sổ Tay Quản Trị Hệ Thống Cập Nhật Dịch Vụ & Triển Khai Web Server Linux.md",
+    "IT-Helpdesk/Quan-Tri-Thiet-Lap-May-In-Mang-LAN.md",
+    "IT-Helpdesk",
+    "Media-Assets/nginx-success.png",
+    "Windows-Server/Chuoi-4-Lab-Cuu-Ho.md",
+    "Media-Assets/Video-Lab02.mp4",
     "Chuoi-4-Lab-Cuu-Ho.md",
     "Windows-Server",
     "Linux-Server",
     "Media-Assets/Video-Lab04.mp4",
     "Media-Assets/Video-Lab03.mp4",
-    "Media-Assets/Video-Lab02.mp4",
-    "Media-Assets/nginx-success.png",
     "Media-Assets",
     "Sổ Tay Quản Trị Hệ Thống Cập Nhật Dịch Vụ & Triển Khai Web Server Linux.md",
     "nginx-success.png",
@@ -212,7 +214,6 @@
     "Video-Lab03.mp4",
     "Video-Lab02.mp4",
     "IT-Support-Runbook.canvas",
-    "Untitled.base",
     "Welcome.md"
   ]
 }
