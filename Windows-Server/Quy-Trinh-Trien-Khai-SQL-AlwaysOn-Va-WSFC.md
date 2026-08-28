@@ -3,11 +3,10 @@
 Bài lab mô phỏng kiến trúc High Availability (HA) cấp độ Enterprise dành cho các hệ thống trọng yếu (Ngân hàng, Tài chính, ERP), đảm bảo Uptime 99.9% và Zero Data Loss.
 
 ## 1. Yêu cầu Hạ tầng (Topology)
-Hệ thống được triển khai hoàn toàn trong vùng mạng cô lập (VLAN riêng), gồm:
-- **01 Domain Controller (DC):** Quản lý phân quyền AD, DNS.
+Hệ thống được triển khai hoàn toàn trong vùng mạng cô lập (Host-Only/VLAN riêng), gồm:
+- **02 Domain Controller (DC01, DC02):** Chạy Active Directory, DNS để phân giải tên miền và quản trị tập trung. (Hoạt động theo cơ chế AD Replication).
 - **02 Node SQL Server (SQL01, SQL02):** Chạy Windows Server, đã join Domain.
-- **01 File Server:** Làm nơi chứa Quorum (File Share Witness).
-
+- **Trọng tài (Quorum):** Đặt File Share Witness trên DC01 (hoặc File Server độc lập) để làm "người phán xử" (Tie-breaker) chống hiện tượng Split-Brain.
 ## 2. Các bước cấu hình cốt lõi
 
 ### Giai đoạn 1: Triển khai Windows Server Failover Cluster (WSFC)
